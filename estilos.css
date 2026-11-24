@@ -1,0 +1,378 @@
+
+/* CONFIGURACIÓN GENERAL */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+body * {
+    cursor: url("cursor-triangulo-acuarela.png") 0 0, auto;
+}
+
+body {
+    background-color: #eee7d9;
+    color: #29251f;
+    font-family: "nitti-typewriter-normal", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* PORTADA */
+
+.portada {
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado p {
+    font-size: 15px;
+}
+
+.titulo {
+    display: block;
+    width: 26.6%;
+    max-width: 560px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* TÍTULO Y BOTÓN DE PATROCINIO */
+
+.titulo-accion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 55px;
+    width: 85%;
+}
+
+.boton-patrocinio {
+    display: block;
+    position: relative;
+    width: 300px;
+    aspect-ratio: 3 / 1;
+    flex-shrink: 0;
+}
+
+.boton-patrocinio::before,
+.boton-patrocinio::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.25s ease;
+}
+
+.boton-patrocinio::before {
+    background-image: url("boton-1.png");
+    opacity: 1;
+}
+
+.boton-patrocinio::after {
+    background-image: url("boton-2.png");
+    opacity: 0;
+}
+
+.boton-patrocinio:hover::before {
+    opacity: 0;
+}
+
+.boton-patrocinio:hover::after {
+    opacity: 1;
+}
+
+/* NAVEGACIÓN */
+
+.navegacion {
+    display: flex;
+    gap: 25px;
+}
+
+.navegacion a {
+    color: #29251f;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    transition: opacity 0.3s;
+}
+
+.navegacion a:hover {
+    opacity: 0.5;
+}
+
+/* PIE DE PORTADA */
+
+.pie-portada {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    font-size: 13px;
+}
+
+/* ADAPTACIÓN DE PORTADA PARA CELULARES */
+
+@media (max-width: 700px) {
+
+    .portada {
+        padding: 25px;
+    }
+
+    .titulo-accion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .titulo {
+        width: 60%;
+    }
+
+    .boton-patrocinio {
+        width: 260px;
+    }
+
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .navegacion {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .pie-portada {
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* GALERÍA DE FOTOGRAFÍAS */
+
+.galeria {
+    padding: 100px 40px;
+    position: relative;
+}
+
+.galeria h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 60px;
+}
+
+.contenedor-fotos {
+    columns: 3;
+    column-gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.foto {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    break-inside: avoid;
+
+    transition: transform 0.4s ease, filter 0.4s ease;
+    position: relative;
+}
+
+.foto:hover {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+    z-index: 2;
+}
+
+/* ADAPTACIÓN DE GALERÍA PARA CELULARES */
+
+@media (max-width: 700px) {
+
+    .contenedor-fotos {
+        columns: 2;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .contenedor-fotos {
+        columns: 1;
+    }
+}
+
+/* SECCIÓN DEL CORTOMETRAJE */
+
+.seccion-pelicula {
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.seccion-pelicula h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.contenedor-video {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-video video {
+    width: 70%;
+    max-width: 850px;
+    height: auto;
+    display: block;
+}
+
+/* SINOPSIS */
+
+.sinopsis {
+    max-width: 750px;
+    margin: 45px auto 0;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ANIMACIONES DE APARICIÓN */
+
+.aparecer {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.aparecer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SECCIÓN PERSONAJES */
+
+.seccion-personajes {
+    padding: 0 40px;
+    text-align: center;
+}
+
+.seccion-personajes h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 35px;
+}
+
+.contenedor-personajes {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contenedor-personajes img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* SECCIÓN EQUIPO Y GALERÍA DE POLAROIDS */
+
+.seccion-equipo {
+    padding: 100px 0 80px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.seccion-equipo h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin: 0 40px 12px;
+}
+
+.ayuda-tendedero {
+    margin: 0 40px 30px;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+.galeria-creditos {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    user-select: none;
+}
+
+.galeria-creditos::-webkit-scrollbar {
+    display: none;
+}
+
+.pista-creditos {
+    display: flex;
+    width: max-content;
+}
+
+.pista-creditos img {
+    display: block;
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .seccion-equipo {
+        padding: 75px 0 60px;
+    }
+
+    .seccion-equipo h2,
+    .ayuda-tendedero {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+}
+
+/* AJUSTES PARA PANTALLAS PEQUEÑAS */
+
+@media (max-width: 700px) {
+
+    .contenedor-video video {
+        width: 100%;
+    }
+
+    .seccion-pelicula {
+        padding: 70px 25px;
+    }
+
+    .seccion-personajes {
+        padding: 0 25px;
+    }
+
+    .sinopsis {
+        font-size: 15px;
+    }
+}
